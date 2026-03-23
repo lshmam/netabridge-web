@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
+/* ============================================
+   NETABRIDGE DESIGN SYSTEM — Design Tokens
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Background Scale ── */
+  --nb-bg:        #050a12;
+  --nb-bg2:       #0a1020;
+  --nb-bg3:       #0f1628;
+
+  /* ── Surface Scale ── */
+  --nb-surface:   #131c30;
+  --nb-surface2:  #1a2540;
+
+  /* ── Border Scale ── */
+  --nb-border:    #1a2540;
+  --nb-border2:   #253050;
+
+  /* ── Text Scale ── */
+  --nb-text:      #e8ecf4;
+  --nb-text2:     #8b96b0;
+  --nb-text3:     #5a6580;
+
+  /* ── Accent ── */
+  --nb-accent:    #2d7ff9;
+  --nb-accent2:   #5b9cff;
+  --nb-accent-glow: rgba(45, 127, 249, 0.08);
+
+  /* ── Semantic ── */
+  --nb-green:     #10b981;
+  --nb-green-dim: rgba(16, 185, 129, 0.08);
+  --nb-amber:     #f59e0b;
+  --nb-amber-dim: rgba(245, 158, 11, 0.08);
+  --nb-red:       #ef4444;
+
+  /* ── Radius Scale ── */
+  --nb-radius-sm:  4px;
+  --nb-radius-md:  6px;
+  --nb-radius:     8px;
+  --nb-radius-lg:  12px;
+
+  /* ── Transitions ── */
+  --nb-transition: 0.25s ease;
+
+  /* ── Layout ── */
+  --nb-container:  1100px;
+  --nb-nav-height: 64px;
 }
 
+/* ── Tailwind Theme Integration ── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:  var(--font-outfit);
+  --font-serif: var(--font-instrument-serif);
+  --font-mono:  var(--font-jetbrains-mono);
+
+  --color-nb-bg:        var(--nb-bg);
+  --color-nb-bg2:       var(--nb-bg2);
+  --color-nb-bg3:       var(--nb-bg3);
+  --color-nb-surface:   var(--nb-surface);
+  --color-nb-surface2:  var(--nb-surface2);
+  --color-nb-border:    var(--nb-border);
+  --color-nb-border2:   var(--nb-border2);
+  --color-nb-text:      var(--nb-text);
+  --color-nb-text2:     var(--nb-text2);
+  --color-nb-text3:     var(--nb-text3);
+  --color-nb-accent:    var(--nb-accent);
+  --color-nb-accent2:   var(--nb-accent2);
+  --color-nb-green:     var(--nb-green);
+  --color-nb-amber:     var(--nb-amber);
+  --color-nb-red:       var(--nb-red);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ── Base Styles ── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--nb-bg);
+    color: var(--nb-text);
+    font-family: var(--font-outfit), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
 }
+
+@layer base {
+  ::selection {
+    background: rgba(45, 127, 249, 0.3);
+    color: var(--nb-text);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--nb-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--nb-border2);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--nb-text3);
+  }
+}
+
+/* ── Ticker Animation ── */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Responsive Breakpoints (for reference) ──
+   sm:  640px
+   md:  768px
+   lg:  1024px
+   xl:  1280px
+*/
