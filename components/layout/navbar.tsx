@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
 
 const navLinks = [
-  { label: "Platform", href: "#vision" },
-  { label: "How It Works", href: "#how" },
-  { label: "Features", href: "#features" },
-  { label: "Compare", href: "#compare" },
+  { label: "Platform", href: "/platform" },
+  { label: "How It Works", href: "/how-it-works" },
+  { label: "Features", href: "/features" },
+  { label: "Compare", href: "/compare" },
 ];
 
 export function Navbar() {
@@ -46,13 +46,13 @@ export function Navbar() {
 
       <div className="flex items-center gap-8">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             className="hidden md:block text-[13px] text-nb-text3 hover:text-nb-text transition-colors tracking-wide"
           >
             {link.label}
-          </a>
+          </Link>
         ))}
         <Button variant="nav" size="nav" asChild>
           <a href="#cta">Get Early Access</a>
