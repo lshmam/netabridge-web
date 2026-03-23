@@ -5,7 +5,6 @@ import {
   VisionLayers,
   HowItWorks,
   Features,
-  Comparison,
   CTASection,
 } from "@/components/sections";
 
@@ -19,7 +18,6 @@ export default function Home() {
         <VisionLayers />
         <HowItWorks />
         <Features />
-        <Comparison />
         <CTASection />
       </main>
       <Footer />

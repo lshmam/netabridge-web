@@ -1,12 +1,21 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
+import { useTheme } from "next-themes";
 
 export function ParticlesBackground() {
   const [ready, setReady] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const particleColor = mounted && resolvedTheme === "light" ? "#94a3b8" : "#ffffff";
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
@@ -28,19 +37,19 @@ export function ParticlesBackground() {
               value: 100,
               density: { enable: true, area: 800 },
             },
-            color: { value: "#ffffff" },
+            color: { value: particleColor },
             shape: { type: "circle" },
             opacity: { value: 0.6 },
             size: { value: 2 },
             links: {
               enable: true,
               distance: 150,
-              color: "#ffffff",
-              opacity: 0.05,
+              color: particleColor,
+              opacity: 0,
               width: 1,
               triangles: {
                 enable: true,
-                opacity: 0.01,
+                opacity: 0,
               },
             },
             move: {

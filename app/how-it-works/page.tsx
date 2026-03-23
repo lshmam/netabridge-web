@@ -603,10 +603,10 @@ export default function HowItWorksPage() {
               <Button size="lg" asChild>
                 <a href="#cta">Get Early Access</a>
               </Button>
-              <Text variant="faint" size="sm" className="mt-4">
+              {/* <Text variant="faint" size="sm" className="mt-4">
                 No credit card required &middot; Free to start &middot; Backed
                 by Antler
-              </Text>
+              </Text> */}
             </ScrollReveal>
           </Container>
         </Section>

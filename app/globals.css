@@ -6,6 +6,44 @@
 
 :root {
   /* ── Background Scale ── */
+  --nb-bg:        #ffffff;
+  --nb-bg2:       #f8fafc;
+  --nb-bg3:       #f1f5f9;
+
+  /* ── Surface Scale ── */
+  --nb-surface:   #ffffff;
+  --nb-surface2:  #f8fafc;
+
+  /* ── Border Scale ── */
+  --nb-border:    #e2e8f0;
+  --nb-border2:   #cbd5e1;
+
+  /* ── Text Scale ── */
+  --nb-text:      #0f172a;
+  --nb-text2:     #334155;
+  --nb-text3:     #64748b;
+
+  /* ── Accent ── */
+  --nb-accent:    #2d7ff9;
+  --nb-accent2:   #1d4ed8;
+  --nb-accent-glow: rgba(45, 127, 249, 0.15);
+
+  /* ── Semantic ── */
+  --nb-green:     #10b981;
+  --nb-green-dim: rgba(16, 185, 129, 0.15);
+  --nb-amber:     #f59e0b;
+  --nb-amber-dim: rgba(245, 158, 11, 0.15);
+  --nb-red:       #ef4444;
+
+  /* ── Radius Scale ── */
+  --nb-radius-sm:  4px;
+  --nb-radius-md:  6px;
+  --nb-radius:     8px;
+  --nb-radius-lg:  12px;
+}
+
+.dark {
+  /* ── Background Scale ── */
   --nb-bg:        #050a12;
   --nb-bg2:       #0a1020;
   --nb-bg3:       #0f1628;
@@ -34,13 +72,8 @@
   --nb-amber:     #f59e0b;
   --nb-amber-dim: rgba(245, 158, 11, 0.08);
   --nb-red:       #ef4444;
-
-  /* ── Radius Scale ── */
-  --nb-radius-sm:  4px;
-  --nb-radius-md:  6px;
-  --nb-radius:     8px;
-  --nb-radius-lg:  12px;
-
+}
+:root {
   /* ── Transitions ── */
   --nb-transition: 0.25s ease;
 
@@ -78,6 +111,10 @@
     scroll-behavior: smooth;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     background: var(--nb-bg);
     color: var(--nb-text);
@@ -95,7 +132,7 @@
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index: 9999;
+    z-index: 50;
   }
 }
 
@@ -124,6 +161,19 @@
 @keyframes ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ── Scan Animation ── */
+@keyframes scan {
+  0%, 100% { top: 0%; opacity: 0; }
+  10%, 90% { opacity: 1; }
+  50% { top: 100%; }
+}
+
+/* ── Progress Bar Animation ── */
+@keyframes grow-width {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
 }
 
 /* ── Responsive Breakpoints (for reference) ──

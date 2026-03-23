@@ -9,9 +9,9 @@ export function Hero() {
       <ParticlesBackground />
       <Glow />
       <Container className="relative z-10 py-32">
-        <FadeIn delay={0.2}>
+        {/* <FadeIn delay={0.2}>
           <Eyebrow className="mb-6">B2B Trade Intelligence</Eyebrow>
-        </FadeIn>
+        </FadeIn> */}
 
         <FadeIn delay={0.4}>
           <Heading as="h1" className="mx-auto max-w-[800px] mb-6">
@@ -37,17 +37,17 @@ export function Hero() {
             <Button size="md" asChild>
               <a href="#cta">Get Early Access</a>
             </Button>
-            <Button variant="ghost" size="md" asChild>
+            {/* <Button variant="ghost" size="md" asChild>
               <a href="#vision">See how it works</a>
-            </Button>
+            </Button> */}
           </div>
         </FadeIn>
 
-        <FadeIn delay={1.0}>
+        {/* <FadeIn delay={1.0}>
           <Text variant="faint" size="sm" className="mt-4">
             Free to start &middot; Backed by Antler &middot; Launching 2026
           </Text>
-        </FadeIn>
+        </FadeIn> */}
       </Container>
     </section>
   );

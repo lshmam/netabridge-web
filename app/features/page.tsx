@@ -274,9 +274,8 @@ function FeatureBlock({
   return (
     <div className="py-16 md:py-20 border-b border-nb-border last:border-b-0">
       <div
-        className={`flex flex-col gap-10 md:gap-16 items-center ${
-          reverse ? "md:flex-row-reverse" : "md:flex-row"
-        }`}
+        className={`flex flex-col gap-10 md:gap-16 items-center ${reverse ? "md:flex-row-reverse" : "md:flex-row"
+          }`}
       >
         {/* Text side */}
         <ScrollReveal
@@ -497,10 +496,10 @@ export default function FeaturesPage() {
                   <a href="/">Back to Home</a>
                 </Button>
               </div>
-              <Text variant="faint" size="sm" className="mt-4">
+              {/* <Text variant="faint" size="sm" className="mt-4">
                 No credit card required &middot; Free to start &middot; Backed
                 by Antler
-              </Text>
+              </Text> */}
             </ScrollReveal>
           </Container>
         </Section>

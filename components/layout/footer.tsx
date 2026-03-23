@@ -32,15 +32,15 @@ export function Footer() {
     <footer className="border-t border-nb-border bg-nb-bg py-12 px-6 md:px-12">
       <div className="mx-auto max-w-[1100px] flex flex-col md:flex-row justify-between items-start gap-8">
         <div>
-          <Link href="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="Netabridge"
-              width={22}
-              height={22}
-              className="rounded-sm"
+              width={40}
+              height={40}
+              className="rounded-md"
             />
-            <span className="font-mono text-[13px] text-nb-text3 tracking-wide">
+            <span className="font-mono text-[16px] font-medium text-nb-text3 tracking-wide">
               NETA<span className="text-nb-accent">BRIDGE</span>
             </span>
           </Link>
