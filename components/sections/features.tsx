@@ -15,6 +15,9 @@ interface Feature {
   image?: string;
 }
 
+// Order matters for grid placement:
+// Row 1: [Large 2-col LEFT] [Small] [Small]
+// Row 2: [Small] [Small] [Large 2-col RIGHT]
 const features: Feature[] = [
   {
     eyebrow: "LOOKUP",
@@ -23,7 +26,7 @@ const features: Feature[] = [
       "Search any company worldwide. Get a profile from government registries, public data, and platform intelligence. Works with zero other users.",
     large: true,
     image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
+      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
   },
   {
     eyebrow: "VERIFICATION",
@@ -38,49 +41,49 @@ const features: Feature[] = [
       "Post what you need. AI matches your request against company capabilities and public data. The right partners find you.",
   },
   {
-    eyebrow: "INTELLIGENCE",
-    title: "Market Pulse",
-    description:
-      "Government tenders, import/export trends, sector signals, demand shifts. Your daily trade intelligence briefing. Never empty.",
-    large: true,
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-  },
-  {
     eyebrow: "CONNECTIONS",
     title: "Verified Connections",
     description:
       "Connect with real people at verified companies. Every connection builds trust signals and strengthens the network for everyone.",
   },
   {
-    eyebrow: "INTELLIGENCE",
+    eyebrow: "ANALYTICS",
     title: "Trade Intelligence",
     description:
       "HS code-linked market data, company capabilities with standard identifiers, and sector analytics woven into every search result.",
+  },
+  {
+    eyebrow: "INTELLIGENCE",
+    title: "Market Pulse",
+    description:
+      "Government tenders, import/export trends, sector signals, demand shifts. Your daily trade intelligence briefing. Never empty.",
+    large: true,
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
   },
 ];
 
 function LargeCard({ feature }: { feature: Feature }) {
   return (
-    <div className="relative md:col-span-2 rounded-xl overflow-hidden min-h-[280px] group">
+    <div className="relative md:col-span-2 rounded-xl overflow-hidden min-h-[320px] group">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
         style={{ backgroundImage: `url(${feature.image})` }}
       />
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
-      {/* Content */}
+      {/* Heavy gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
+      {/* Content pinned to bottom */}
       <div className="relative z-10 flex flex-col justify-end h-full p-8">
         <div className="font-mono text-[11px] uppercase tracking-[3px] text-nb-accent mb-3">
           {feature.eyebrow}
         </div>
-        <Heading as="h4" className="mb-1.5 text-white">
+        <h4 className="text-lg font-semibold text-white mb-2">
           {feature.title}
-        </Heading>
-        <Text variant="body" className="text-white/80 max-w-md">
+        </h4>
+        <p className="text-[13px] font-light leading-relaxed text-white/90 max-w-md">
           {feature.description}
-        </Text>
+        </p>
       </div>
     </div>
   );
@@ -88,14 +91,16 @@ function LargeCard({ feature }: { feature: Feature }) {
 
 function SmallCard({ feature }: { feature: Feature }) {
   return (
-    <div className="bg-nb-surface hover:bg-nb-surface2 transition-colors duration-300 rounded-xl p-8 flex flex-col justify-end min-h-[220px]">
-      <div className="font-mono text-[11px] uppercase tracking-[3px] text-nb-accent mb-3">
+    <div className="bg-nb-surface hover:bg-nb-surface2 transition-colors duration-300 rounded-xl p-8 flex flex-col justify-between min-h-[220px]">
+      <div className="font-mono text-[11px] uppercase tracking-[3px] text-nb-accent mb-6">
         {feature.eyebrow}
       </div>
-      <Heading as="h4" className="mb-1.5">
-        {feature.title}
-      </Heading>
-      <Text>{feature.description}</Text>
+      <div>
+        <Heading as="h4" className="mb-2">
+          {feature.title}
+        </Heading>
+        <Text>{feature.description}</Text>
+      </div>
     </div>
   );
 }

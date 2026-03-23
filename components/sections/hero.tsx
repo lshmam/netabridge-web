@@ -1,14 +1,14 @@
 "use client";
 
 import { Container, Button, Heading, HeadingAccent, Text, Eyebrow } from "@/components/ui";
-import { FadeIn } from "@/components/effects";
-import { Glow } from "@/components/effects";
+import { FadeIn, Glow, ParticlesBackground } from "@/components/effects";
 
 export function Hero() {
   return (
-    <section className="relative pt-40 pb-24 text-center">
+    <section className="relative min-h-[80vh] flex items-center justify-center text-center">
+      <ParticlesBackground />
       <Glow />
-      <Container className="relative">
+      <Container className="relative z-10 py-32">
         <FadeIn delay={0.2}>
           <Eyebrow className="mb-6">B2B Trade Intelligence</Eyebrow>
         </FadeIn>
