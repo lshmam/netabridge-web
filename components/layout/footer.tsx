@@ -1,13 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const footerColumns = [
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+interface FooterColumn {
+  title: string;
+  links: FooterLink[];
+}
+
+const footerColumns: FooterColumn[] = [
   {
     title: "Platform",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#" },
-      { label: "Roadmap", href: "#" },
+      // { label: "Features", href: "#features" },
+      // { label: "Pricing", href: "#" },
+      // { label: "Roadmap", href: "#" },
     ],
   },
   {

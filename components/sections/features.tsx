@@ -186,7 +186,7 @@ const features: Feature[] = [
     eyebrow: "AI SOURCING",
     title: "Natural Language Sourcing",
     description:
-      "Skip complex filters. Describe what you need and our AI instantly matches you with verified, government-registered partners.",
+      "Skip complex filters. Describe what you need and our AI instantly matches you with resources and companies.",
     large: true,
     animation: "chat",
   },
@@ -236,7 +236,7 @@ function LargeCard({ feature }: { feature: Feature }) {
           </>
         )}
         {feature.animation === "chat" && (
-          <div className="w-full max-w-sm h-full overflow-hidden flex flex-col justify-start pt-2 px-4">
+          <div className="w-full max-w-sm h-full overflow-hidden flex flex-col justify-start">
             <MiniChatAnimation />
           </div>
         )}

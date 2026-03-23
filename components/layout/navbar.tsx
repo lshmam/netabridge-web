@@ -8,9 +8,14 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const navLinks = [
-  { label: "How It Works", href: "/how-it-works" },
-  { label: "Features", href: "/features" },
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  // { label: "How It Works", href: "/how-it-works" },
+  // { label: "Features", href: "/features" },
 ];
 
 export function Navbar() {
