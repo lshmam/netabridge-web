@@ -13,19 +13,10 @@ interface FooterColumn {
 
 const footerColumns: FooterColumn[] = [
   {
-    title: "Platform",
-    links: [
-      // { label: "Features", href: "#features" },
-      // { label: "Pricing", href: "#" },
-      // { label: "Roadmap", href: "#" },
-    ],
-  },
-  {
     title: "Company",
     links: [
       { label: "About", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "info@netabridge.com", href: "mailto:info@netabridge.com" },
     ],
   },
   {

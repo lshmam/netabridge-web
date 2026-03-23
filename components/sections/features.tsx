@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Brain, Sparkles, CheckCircle2, Loader2 } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 import {
   Container,
   Section,
@@ -198,7 +199,10 @@ function LargeCard({ feature }: { feature: Feature }) {
   return (
     <div className="relative rounded-xl overflow-hidden group bg-nb-surface border border-nb-border flex flex-col">
       {/* Animation Area */}
-      <div className="h-[300px] sm:h-[380px] relative flex items-center justify-center overflow-hidden w-full">
+      <div className={cn(
+        "relative flex items-center justify-center overflow-hidden w-full",
+        feature.animation === "chat" ? "h-[290px] sm:h-[340px]" : "h-[300px] sm:h-[380px]"
+      )}>
         {feature.animation === "orbital" && (
           <>
             {/* Mobile: small rings */}
@@ -236,14 +240,14 @@ function LargeCard({ feature }: { feature: Feature }) {
           </>
         )}
         {feature.animation === "chat" && (
-          <div className="w-full max-w-sm h-full overflow-hidden flex flex-col justify-start">
+          <div className="w-full max-w-sm px-6 flex flex-col justify-start">
             <MiniChatAnimation />
           </div>
         )}
       </div>
 
       {/* Text Content */}
-      <div className="p-5 sm:p-6 border-t border-nb-border bg-nb-bg/60">
+      <div className="p-5 sm:p-6 pb-2 border-t border-nb-border bg-nb-bg/60 flex-1">
         <div className="font-mono text-[11px] uppercase tracking-[3px] text-nb-accent mb-3">
           {feature.eyebrow}
         </div>
